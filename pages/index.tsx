@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import getWeather from "../utils/getWeather";
 import { TimeWidget } from "../components/TimeWidget";
+import { WeatherWidget } from "../components/WeatherWidget";
 
 interface Parameters {
   title?: string;
@@ -164,36 +165,7 @@ export default function Home() {
       <div className="bg-[#000] fixed inset-0 w-full h-full outline-none border-none flex items-center justify-center flex-col-reverse overflow-y-scroll lg:flex-row lg:overflow-hidden">
         <Widgets initial="init" animate="load" variants={mainVariants}>
           <TimeWidget time={time} />
-
-          <WeatherWidget time={time} variants={mainChildVariants}>
-            <WeatherIcon
-              src={`http://openweathermap.org/img/wn/${weatherObj.weather?.[0].icon}@2x.png`}
-            />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "start",
-                justifyContent: "center",
-              }}
-            >
-              <Temp>
-                {temperatureUnit == "C"
-                  ? Math.floor((weatherObj?.main?.temp - 32) / 1.8)
-                  : Math.floor(weatherObj?.main?.temp)}
-                º{temperatureUnit}
-              </Temp>
-              <WeatherDescription>
-                {weatherObj?.weather?.[0].main}
-                <span
-                  style={{ color: "rgba(255, 255, 255, 0.6)", fontWeight: 400 }}
-                >
-                  {" "}
-                  - {weatherObj?.weather?.[0].description}
-                </span>
-              </WeatherDescription>
-            </div>
-          </WeatherWidget>
+          <WeatherWidget time={time} />
         </Widgets>
 
         <Main initial="init" animate="load" variants={mainVariants}>
@@ -424,29 +396,6 @@ const SiteName = styled.div`
   text-align: center;
   text-overflow: ellipsis;
   overflow: hidden;
-`;
-
-const WeatherWidget = styled(motion.div)<{ time: string }>`
-    margin: 1rem;
-    width: 25rem;
-    height: 10rem;
-    
-    background: ${({ time }) =>
-      time.slice(-4).startsWith("a")
-        ? parseInt(time.slice(0, -11)) < 5
-          ? "linear-gradient(#152853, #040c24);"
-          : "linear-gradient(#7dc7ff, #3e67ed);"
-        : parseInt(time.slice(0, -11)) < 6
-        ? "linear-gradient(#7dc7ff, #3e67ed);"
-        : "linear-gradient(#152853, #040c24);"}
-    border-radius: 1rem;
-    filter: drop-shadow(3px 3px 0.35rem rgba(0, 0, 0, 0.3));
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
 `;
 
 const Temp = styled.div`
