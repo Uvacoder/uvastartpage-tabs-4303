@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import getWeather from "../utils/getWeather";
+import { TimeWidget } from "../components/TimeWidget";
 
 interface Parameters {
   title?: string;
@@ -162,22 +163,8 @@ export default function Home() {
 
       <div className="bg-[#000] fixed inset-0 w-full h-full outline-none border-none flex items-center justify-center flex-col-reverse overflow-y-scroll lg:flex-row lg:overflow-hidden">
         <Widgets initial="init" animate="load" variants={mainVariants}>
-          <TimeWidget variants={mainChildVariants}>
-            <TimeSubtitle>
-              {time.slice(-4).startsWith("a")
-                ? parseInt(time.slice(0, -11)) < 12
-                  ? "Good morning."
-                  : "Good afternoon."
-                : parseInt(time.slice(0, -11)) < 5
-                ? "Good afternoon."
-                : "Good evening."}
-            </TimeSubtitle>
+          <TimeWidget time={time} />
 
-            <Time>
-              {days[new Date().getDay()]} • {time.slice(0, -4)}
-              <AmPm>{time.slice(-4).toUpperCase()}</AmPm>
-            </Time>
-          </TimeWidget>
           <WeatherWidget time={time} variants={mainChildVariants}>
             <WeatherIcon
               src={`http://openweathermap.org/img/wn/${weatherObj.weather?.[0].icon}@2x.png`}
@@ -480,29 +467,6 @@ const WeatherIcon = styled.img`
   width: 100px;
   height: 100px;
   filter: drop-shadow(0 0 5px #fff);
-`;
-
-const TimeWidget = styled(motion.div)`
-  margin: 1rem;
-  width: 25rem;
-  height: 10rem;
-
-  background: #000;
-  border-radius: 1rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 400;
-
-  filter: drop-shadow(3px 3px 0.35rem rgba(0, 0, 0, 0.3));
-
-  & > * {
-    margin-left: 2rem;
-  }
 `;
 
 const TimeSubtitle = styled.div`
