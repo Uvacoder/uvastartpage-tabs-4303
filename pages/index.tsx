@@ -118,18 +118,18 @@ export default function Home() {
   }
 
   useEffect(() => {
-    const fetchStuff = async () => {
+    const main = async () => {
       if (!params.pinned) return;
 
       await fetch(`/api/fetchData?url=${params.pinned}`)
         .then((res: any) => res.json())
         .then((data: any) => setPinnedLinks(JSON.parse(data.body)));
     };
-
-    fetchStuff();
+    main();
 
     if (params.title) setTitle(params.title);
     if (params.background) setBackground(params.background);
+
     params.unit?.toUpperCase() == "C"
       ? setTemperatureUnit("C")
       : setTemperatureUnit("F");
@@ -243,7 +243,7 @@ export default function Home() {
           <PinnedSites variants={mainChildVariants}>
             {pinnedLinks.map((linkObj: BookmarkObj) => {
               return (
-                <Site href={linkObj.url} key={linkObj.url}>
+                <Site href={linkObj.url} key={linkObj.url} target="_blank">
                   <SiteIcon image={linkObj.image} />
                   <SiteName>{linkObj.name}</SiteName>
                 </Site>
