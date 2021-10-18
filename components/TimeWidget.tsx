@@ -10,16 +10,6 @@ function getGreeting(time: string) {
     : "Good evening.";
 }
 
-function getGradient(time: string) {
-  return time.slice(-4).startsWith("a")
-    ? parseInt(time.slice(0, -11)) < 5
-      ? "linear-gradient(#152853, #040c24);"
-      : "linear-gradient(#7dc7ff, #3e67ed);"
-    : parseInt(time.slice(0, -11)) < 6
-    ? "linear-gradient(#7dc7ff, #3e67ed);"
-    : "linear-gradient(#152853, #040c24);";
-}
-
 const days = [
   "Sunday",
   "Monday",
@@ -32,21 +22,19 @@ const days = [
 
 export const TimeWidget = ({ time }: { time: string }) => {
   const greeting = getGreeting(time);
-  const gradient = getGradient(time);
 
   return (
     <div
-      className="m-[1rem] h-[10rem] w-[25rem] rounded-[1rem] color-[#fff] flex flex-col justify-center p-[1.4rem]"
+      className="m-[1rem] h-[10rem] w-[25rem] bg-[#000] rounded-[1rem] text-[#fff] flex flex-col justify-center p-[1.4rem]"
       style={{
-        background: gradient,
         filter: "drop-shadow(3px 3px 0.35rem rgba(0, 0, 0, 0.3))",
       }}
     >
-      <h1 className="color-[#fff] text-[1.75rem] font-semibold tracking-[0.035rem]">
+      <h1 className="text-[1.75rem] font-semibold tracking-[0.035rem]">
         {greeting}
       </h1>
 
-      <div className="flex items-center justify-start w-[20rem] font-light text-[1.35rem] color-[#fff]">
+      <div className="flex items-center justify-start w-[20rem] font-light text-[1.35rem]">
         {days[new Date().getDay()]} • {time.slice(0, -4)}
         <span className="ml-[0.5rem] text-[#e6e6e6] text-[1.2rem] font-light">
           {time.slice(-4).toUpperCase()}
