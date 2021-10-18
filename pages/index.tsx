@@ -179,7 +179,7 @@ export default function Home() {
           </TimeWidget>
           <WeatherWidget time={time} variants={mainChildVariants}>
             <WeatherIcon
-              src={`http://openweathermap.org/img/wn/${weatherObj.weather[0].icon}@2x.png`}
+              src={`http://openweathermap.org/img/wn/${weatherObj.weather?.[0].icon}@2x.png`}
             />
             <div
               style={{
@@ -191,17 +191,17 @@ export default function Home() {
             >
               <Temp>
                 {temperatureUnit == "C"
-                  ? Math.floor((weatherObj.main.temp - 32) / 1.8)
-                  : Math.floor(weatherObj.main.temp)}
+                  ? Math.floor((weatherObj?.main?.temp - 32) / 1.8)
+                  : Math.floor(weatherObj?.main?.temp)}
                 º{temperatureUnit}
               </Temp>
               <WeatherDescription>
-                {weatherObj.weather[0].main}
+                {weatherObj?.weather?.[0].main}
                 <span
                   style={{ color: "rgba(255, 255, 255, 0.6)", fontWeight: 400 }}
                 >
                   {" "}
-                  - {weatherObj.weather[0].description}
+                  - {weatherObj?.weather?.[0].description}
                 </span>
               </WeatherDescription>
             </div>
