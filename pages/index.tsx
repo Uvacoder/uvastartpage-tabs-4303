@@ -159,7 +159,8 @@ export default function Home() {
       <Head>
         <title>{title} - h.cnrad.dev</title>
       </Head>
-      <Page>
+
+      <div className="bg-[#000] fixed inset-0 w-full h-full outline-none border-none flex items-center justify-center flex-col-reverse overflow-y-scroll lg:flex-row lg:overflow-hidden">
         <Widgets initial="init" animate="load" variants={mainVariants}>
           <TimeWidget variants={mainChildVariants}>
             <TimeSubtitle>
@@ -207,6 +208,7 @@ export default function Home() {
             </div>
           </WeatherWidget>
         </Widgets>
+
         <Main initial="init" animate="load" variants={mainVariants}>
           <Header variants={mainChildVariants}>
             {title}{" "}
@@ -253,7 +255,7 @@ export default function Home() {
         </Main>
 
         <Background bgParam={background} />
-      </Page>
+      </div>
     </>
   );
 }
@@ -350,7 +352,7 @@ const Search = styled(motion.div)`
   width: 70%;
   min-height: 52px;
   min-width: 25rem;
-  background: #38383d url(/icons/searchGlass.svg) 16px center no-repeat;
+  background: #38383d url("/icons/searchGlass.svg") 16px center no-repeat;
   border-radius: 7px;
 
   display: flex;
