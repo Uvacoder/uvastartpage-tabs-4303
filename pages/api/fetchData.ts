@@ -1,16 +1,16 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
 interface Data {
-    body: string;
+  body: string;
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+) {
+  let url = req.query["url"] as string;
 
-    let url = req.query['url'] as string;
+  let data = await fetch(url).then((res) => res.json());
 
-    let data = await fetch(url)
-        .then(res => res.json())
-
-    res.status(200).json({ body: JSON.stringify(data) })
+  res.status(200).json({ body: JSON.stringify(data) });
 }
-  
