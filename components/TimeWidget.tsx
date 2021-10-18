@@ -36,7 +36,7 @@ export const TimeWidget = ({ time }: { time: string }) => {
 
   return (
     <div
-      className="m-[1rem] h-[10rem] w-[25rem] rounded-[1rem] color-[#fff] flex items-center justify-center"
+      className="m-[1rem] h-[10rem] w-[25rem] rounded-[1rem] color-[#fff] flex flex-col justify-center p-[1.4rem]"
       style={{
         background: gradient,
         filter: "drop-shadow(3px 3px 0.35rem rgba(0, 0, 0, 0.3))",
