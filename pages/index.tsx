@@ -350,7 +350,7 @@ const Search = styled(motion.div)`
   width: 70%;
   min-height: 52px;
   min-width: 25rem;
-  background: #38383d url(/search-glass.svg) 16px center no-repeat;
+  background: #38383d url(/icons/searchGlass.svg) 16px center no-repeat;
   border-radius: 7px;
 
   display: flex;
