@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import getWeather from "../src/utils/getWeather";
+import getWeather from "../utils/getWeather";
 
 interface Parameters {
   title?: string;
@@ -106,7 +106,7 @@ export default function Home() {
 
   let [title, setTitle] = useState("New Tab");
   let [background, setBackground] = useState("none");
-  let [userIp, setUserIp] = useState("IP not found");
+  // let [userIp, setUserIp] = useState("IP not found");
   let [weatherObj, setWeatherObj] = useState(loadingWeatherObj);
   let [time, setTime] = useState("00:00:00 p.m.");
   let [temperatureUnit, setTemperatureUnit] = useState("F");
