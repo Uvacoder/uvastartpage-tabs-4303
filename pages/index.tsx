@@ -61,6 +61,31 @@ export default function Home() {
       image:
         "https://www.macobserver.com/wp-content/uploads/2019/05/workfeatured-GitHub-2.png",
     },
+    {
+        "name": "GitHub",
+        "url": "https://github.com",
+        "image": "https://www.sferalabs.cc/wp-content/uploads/github-logo-white.png"
+    },
+    {
+        "name": "YouTube",
+        "url": "https://youtube.com",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/YouTube_social_white_squircle_%282017%29.svg/1024px-YouTube_social_white_squircle_%282017%29.svg.png"
+    },
+    {
+        "name": "Twitter",
+        "url": "https://twitter.com",
+        "image": "https://cdn-icons-png.flaticon.com/512/124/124021.png"
+    },
+    {
+        "name": "Mail",
+        "url": "https://mail.google.com",
+        "image": "https://t4techblog.com/wp-content/uploads/2020/10/workspace-new-gmail-icon-1024x1024.png"
+    },
+    {
+        "name": "Giggl",
+        "url": "https://canary.giggl.app",
+        "image": "https://pbs.twimg.com/profile_images/1411382142068723712/wV8pCLek.jpg"
+    },
   ]);
 
   let [title, setTitle] = useState("New Tab");
