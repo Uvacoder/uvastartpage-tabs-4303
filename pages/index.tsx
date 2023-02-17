@@ -156,7 +156,7 @@ export default function Home() {
             <span
               style={{ color: "rgba(255, 255, 255, 0.3)", fontWeight: 400 }}
             >
-              - h.cnrad.dev
+              - uvacoder
             </span>
           </Header>
           <Search variants={mainChildVariants}>
