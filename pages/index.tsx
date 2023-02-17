@@ -141,7 +141,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>{title} - h.cnrad.dev</title>
+        <title>{title} - uvacoder</title>
       </Head>
 
       <div className="bg-[#000] fixed inset-0 w-full h-full outline-none border-none flex items-center justify-center flex-col-reverse overflow-y-scroll lg:flex-row lg:overflow-hidden">
