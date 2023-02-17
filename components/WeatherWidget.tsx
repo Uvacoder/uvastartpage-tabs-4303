@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React, { useEffect, useState } from "react";
 import { loadingWeatherObj } from "../constants/loadingWeatherObj";
 import getWeather from "../utils/getWeather";
@@ -33,7 +34,7 @@ export const WeatherWidget = ({ time }: { time: string }) => {
         filter: "drop-shadow(3px 3px 0.35rem rgba(0, 0, 0, 0.3))",
       }}
     >
-      <img
+      <Image
         src={`http://openweathermap.org/img/wn/${weatherObj.weather?.[0].icon}@2x.png`}
         className="mr-[10px] w-[100px] h-[100px]"
         alt="Weather"
