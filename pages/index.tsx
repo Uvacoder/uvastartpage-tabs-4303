@@ -388,9 +388,9 @@ const Temp = styled.div`
 
 const WeatherDescription = styled.div`
   color: #fff;
-  font-size: 1 rem;
-  font-weight: 400;
-  width: 12rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  width: 16rem;
 `;
 
 const WeatherIcon = styled.img`
