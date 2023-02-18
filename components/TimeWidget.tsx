@@ -3,11 +3,11 @@ import React from "react";
 function getGreeting(time: string) {
   return time.slice(-4).startsWith("a")
     ? parseInt(time.slice(0, -11)) < 12
-      ? "Good morning."
-      : "Good afternoon."
+      ? "Get up Loser."
+      : "Days not over yet."
     : parseInt(time.slice(0, -11)) < 5
-    ? "Good afternoon."
-    : "Good evening.";
+    ? "Days not over yet."
+    : "Go to bed Loser.";
 }
 
 const days = [
