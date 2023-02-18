@@ -88,7 +88,7 @@ export default function Home() {
     },
   ]);
 
-  let [title, setTitle] = useState("New Tab");
+  let [title, setTitle] = useState("Lets Go");
   let [background, setBackground] = useState("none");
   // let [userIp, setUserIp] = useState("IP not found");
   let [weatherObj, setWeatherObj] = useState(loadingWeatherObj);
@@ -245,7 +245,7 @@ const Page = styled.div`
 `;
 
 const Widgets = styled(motion.div)`
-  width: 50%;
+  width: 30%;
   height: 100%;
   margin: 3rem;
 
