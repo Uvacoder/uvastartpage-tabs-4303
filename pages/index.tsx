@@ -245,7 +245,7 @@ const Page = styled.div`
 `;
 
 const Widgets = styled(motion.div)`
-  width: 30%;
+  width: 50%;
   height: 100%;
   margin: 3rem;
 
